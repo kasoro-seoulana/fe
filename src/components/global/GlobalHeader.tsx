@@ -39,31 +39,63 @@ export default function GlobalHeader() {
 	};
 
 	return (
-		<header className="sticky top-0 w-full py-3 px-6 flex justify-between items-center relative z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b-4 border-dashed border-[#5fb3ff] dark:border-[#4a9ce8] shadow-md">
-			<div className="flex items-center gap-3">
-				<Link href="/" className="flex items-center gap-3 group">
-					<div className="w-12 h-12 bg-gradient-to-br from-[#5fb3ff] to-purple-500 dark:from-[#4a9ce8] dark:to-purple-400 rounded-full border-4 border-dashed border-white dark:border-gray-800 flex items-center justify-center p-1.5 shadow-lg transform group-hover:scale-110 transition-all">
-						<Image src="/images/kasoro_logo.png" alt="Kasoro Logo" width={32} height={32} className="rounded-full" />
+		<header className="sticky top-0 w-full py-2 sm:py-3 px-3 sm:px-6 flex items-center relative z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b-4 border-dashed border-[#5fb3ff] dark:border-[#4a9ce8] shadow-md">
+			{/* Logo and Left Side */}
+			<div className="flex items-center flex-grow">
+				<Link href="/" className="flex items-center gap-2 sm:gap-3 group mr-3 sm:mr-6">
+					<div className="w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br from-[#5fb3ff] to-purple-500 dark:from-[#4a9ce8] dark:to-purple-400 rounded-full border-3 sm:border-4 border-dashed border-white dark:border-gray-800 flex items-center justify-center p-1 sm:p-1.5 shadow-lg transform group-hover:scale-110 transition-all">
+						<Image
+							src="/images/kasoro_logo.png"
+							alt="Kasoro Logo"
+							width={20}
+							height={20}
+							className="rounded-full sm:hidden"
+						/>
+						<Image
+							src="/images/kasoro_logo.png"
+							alt="Kasoro Logo"
+							width={32}
+							height={32}
+							className="rounded-full hidden sm:block"
+						/>
 					</div>
-					<h2 className="font-extrabold text-xl tracking-wider uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#5fb3ff] to-purple-500 dark:from-[#4a9ce8] dark:to-purple-400 group-hover:scale-105 transition-transform">Pulse</h2>
+					<h2 className="font-extrabold text-sm sm:text-xl tracking-wider uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#5fb3ff] to-purple-500 dark:from-[#4a9ce8] dark:to-purple-400 group-hover:scale-105 transition-transform">
+						Pulse
+					</h2>
 				</Link>
-				<div className="h-8 border-r-2 border-dashed border-[#5fb3ff]/30 dark:border-[#4a9ce8]/30 mx-2"></div>
-				<nav className="flex items-center gap-6 ml-1">
-					<Link href="/communities" className="font-bold text-gray-700 dark:text-gray-300 hover:text-[#5fb3ff] dark:hover:text-[#5fb3ff] transition-colors">
+
+				{/* Navigation */}
+				<nav className="flex items-center">
+					<div className="h-6 sm:h-8 border-r-2 border-dashed border-[#5fb3ff]/30 dark:border-[#4a9ce8]/30 mr-3 sm:mr-4"></div>
+
+					{/* Communities Link - Always visible */}
+					<Link
+						href="/communities"
+						className="font-bold text-sm sm:text-base text-gray-700 dark:text-gray-300 hover:text-[#5fb3ff] dark:hover:text-[#5fb3ff] transition-colors"
+					>
 						Communities
 					</Link>
-					<a href="/#features" className="font-bold text-gray-700 dark:text-gray-300 hover:text-[#5fb3ff] dark:hover:text-[#5fb3ff] transition-colors">
-						Features
-					</a>
-					<a href="/#how-it-works" className="font-bold text-gray-700 dark:text-gray-300 hover:text-[#5fb3ff] dark:hover:text-[#5fb3ff] transition-colors">
-						How It Works
-					</a>
+
+					{/* Features and How It Works - Only visible on desktop */}
+					<div className="hidden md:flex items-center gap-6 ml-6">
+						<a
+							href="/#features"
+							className="font-bold text-gray-700 dark:text-gray-300 hover:text-[#5fb3ff] dark:hover:text-[#5fb3ff] transition-colors"
+						>
+							Features
+						</a>
+						<a
+							href="/#how-it-works"
+							className="font-bold text-gray-700 dark:text-gray-300 hover:text-[#5fb3ff] dark:hover:text-[#5fb3ff] transition-colors"
+						>
+							How It Works
+						</a>
+					</div>
 				</nav>
 			</div>
-			
-			<div className="flex items-center gap-4">
-				{mounted && <WalletButton />}
-			</div>
+
+			{/* Wallet Button (Right Side) */}
+			<div className="flex items-center">{mounted && <WalletButton />}</div>
 		</header>
 	);
 }

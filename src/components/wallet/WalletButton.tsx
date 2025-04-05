@@ -9,11 +9,11 @@ import { api } from '@/api';
 
 // Define user type
 interface User {
-  id: string;
-  username: string;
-  oauth_token?: string;
-  oauth_token_secret?: string;
-  walletAddress?: string | null;
+	id: string;
+	username: string;
+	oauth_token?: string;
+	oauth_token_secret?: string;
+	walletAddress?: string | null;
 }
 
 export function WalletButton() {
@@ -21,12 +21,12 @@ export function WalletButton() {
 	const [mounted, setMounted] = useState(false);
 	const [showLoginDialog, setShowLoginDialog] = useState(false);
 	const [user, setUser] = useState<User | null>(null);
-	
+
 	// Ensure component is mounted before rendering wallet button to avoid hydration errors
 	useEffect(() => {
 		setMounted(true);
 	}, []);
-	
+
 	// Show login dialog when wallet is connected
 	useEffect(() => {
 		if (publicKey) {
@@ -36,7 +36,7 @@ export function WalletButton() {
 			setShowLoginDialog(false);
 		}
 	}, [publicKey]);
-	
+
 	// Fetch user data from API
 	const fetchUser = async () => {
 		try {
@@ -56,13 +56,10 @@ export function WalletButton() {
 			<div className="flex items-center">
 				<WalletMultiButton className="wallet-button" />
 			</div>
-			
+
 			<Dialog open={showLoginDialog} onOpenChange={setShowLoginDialog}>
 				<DialogContent className="sm:max-w-md p-6">
-					<LoginDialog 
-						onClose={() => setShowLoginDialog(false)} 
-						user={user}
-					/>
+					<LoginDialog onClose={() => setShowLoginDialog(false)} user={user} />
 				</DialogContent>
 			</Dialog>
 		</>
