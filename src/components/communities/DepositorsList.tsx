@@ -62,9 +62,7 @@ export default function DepositorsList({ communityId }: DepositorListProps) {
       <div className="mb-6 flex flex-col">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
-            <span className="w-4 h-4 bg-[#5fb3ff] dark:bg-[#4a9ce8] rounded-full"></span>
             <h3 className="text-lg font-extrabold tracking-widest uppercase text-[#5fb3ff] dark:text-[#5fb3ff]">Meme Stakers</h3>
-            <span className="w-4 h-4 bg-[#5fb3ff] dark:bg-[#4a9ce8] rounded-full"></span>
           </div>
           <button 
             onClick={() => fetchDepositors()} 

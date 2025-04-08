@@ -209,8 +209,8 @@ export default function CommunityPage() {
 					<div className="w-full lg:w-64 bg-white dark:bg-gray-800 border-4 border-dashed border-[#5fb3ff] dark:border-[#4a9ce8] p-5 shadow-xl rounded-xl transform rotate-0">
 						<div className="mb-6">
 							<div className="flex items-center mb-4">
-								<div className="w-8 h-8 bg-[#5fb3ff] rounded-full mr-3 transform rotate-0"></div>
-								<h2 className="text-xl font-extrabold text-[#5fb3ff] dark:text-[#5fb3ff] uppercase">Meme Stakers</h2>
+							
+								<h2 className="text-xl font-extrabold text-[rgba(255,182,193,0.5)] dark:text-[#5fb3ff] uppercase">Meme Stakers</h2>
 							</div>
 							<hr className="border-[#5fb3ff] dark:border-[#4a9ce8] border-2 border-dashed mb-4" />
 							<DepositorsList communityId={id as string} />
